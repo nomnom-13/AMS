@@ -1,0 +1,979 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navbar */
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(2px);
+    z-index: 100;
+}
+
+.navbar-container {
+    padding: 0 3rem;
+}
+
+.navbar .profile .profile-image {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.navbar .profile .profile-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+hr {
+    margin: 0;
+}
+
+.profile-image ul {
+    position: relative;
+    display: none;
+    margin-top: 0.25rem;
+    list-style: none;
+    width: 8rem;
+    border-radius: 0.5rem;
+    padding: 0.25rem 1rem 1rem 1rem;
+    left: -5rem;
+    box-shadow: 0.125rem 0.125rem 0.5rem rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255);
+    backdrop-filter: blur(2px);
+}
+
+.profile-image ul span {
+    color: #9b9b9b;
+    font-size: 14px;
+}
+
+.profile-image ul li {
+    /* margin-top: .5rem; */
+    padding-top: 0.5rem;
+}
+
+.profile-image ul li a {
+    position: relative;
+    text-decoration: none;
+    color: #000;
+}
+
+.profile-image ul li a::after {
+    position: absolute;
+    content: "";
+    right: -1rem;
+    width: 0rem;
+    height: 100%;
+    background-color: #3633ff;
+}
+
+.profile-image ul li a:hover::after {
+    width: 0.125rem;
+    transition: all 150ms ease;
+}
+
+.profile-image ul li a.active {
+    color: #3633ff;
+    font-weight: 500;
+
+    &::after {
+        position: absolute;
+        content: "";
+        right: -1rem;
+        width: 0.125rem;
+        height: 100%;
+        background-color: #3633ff;
+    }
+}
+
+.profile-image ul li a:hover {
+    color: #3633ff;
+    font-weight: 500;
+}
+
+.profile-image form button {
+    padding: 0;
+    color: #000;
+
+    &:hover {
+        color: #3633ff;
+        font-weight: 500;
+    }
+}
+
+main {
+    margin: 4rem 0 0 0;
+}
+
+/* Dashboard */
+
+.db-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 5rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background: #dddddd52;
+}
+
+.db-header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+}
+
+.form{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.form label{
+    text-wrap: nowrap;
+    font-weight: 500;
+}
+
+.cv-card {
+    position: relative;
+    margin-top: 1rem;
+    width: 41vw;
+    height: 9rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background: #fff;
+    box-shadow: 0.125rem 0.125rem 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+.cv-card p {
+    margin: 0;
+}
+
+.cv-card-details {
+    position: relative;
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.cv-card-details img {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    object-fit: cover;
+    align-self: center;
+    border: 2px solid #ddd;
+}
+
+.cv-card-details .applicant {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.cv-card-details .applicant .name {
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.cv-card-details .cv-buttons {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 14px;
+    top: 0;
+    right: 0;
+}
+
+.cv-card .status .status-circle {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: #36454f;
+}
+
+.status span {
+    font-size: 14px;
+    font-weight: 500;
+    color: #36454f;
+}
+
+.cv-card-details .applicant .location,
+.job-applied {
+    display: flex;
+    font-size: 14px;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.cv-card .status {
+    position: absolute;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    bottom: 0.75rem;
+    right: 0.75rem;
+    gap: 0.25rem;
+}
+
+.cv-buttons i {
+    color: #000;
+}
+
+/* View CV */
+.cv-wrapper {
+    padding: 0 1rem 1rem 1rem;
+}
+
+.resume-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.resume-holder {
+    width: 60dvw;
+    padding: 5rem 5rem 4rem 5rem;
+    border: 1px solid #ddd;
+    box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
+}
+
+.resume-holder p {
+    margin: 0;
+}
+
+.resume-holder .resume-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.resume-header img {
+    width: 8rem;
+    height: 8rem;
+}
+
+.resume-holder hr {
+    opacity: 1;
+    margin: 0 0 0.5rem 0;
+}
+
+.resume-objective {
+    margin-bottom: 0.5rem;
+}
+
+.resume-info ul li {
+    /* background-color: aquamarine; */
+    display: grid;
+    grid-template-columns: 10rem 15rem;
+    gap: 1rem;
+}
+
+.resume-educ li {
+    list-style: none;
+    margin-bottom: 0.35rem;
+}
+
+.resume-educ .tertiary,
+.secondary,
+.primary {
+    display: grid;
+    /* background-color: aqua; */
+    grid-template-columns: 5rem 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Edit */
+
+.wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    gap: 1rem;
+    padding-top: 0.5rem;
+}
+
+.edit-sidenav {
+    position: fixed;
+    width: 25%;
+    height: calc(100vh - 7rem);
+    margin-top: 2.5rem;
+    border: 1px solid #ddd;
+}
+
+.edit-sidenav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-sidenav ul li {
+    display: flex;
+    justify-content: center;
+}
+
+.edit-sidenav ul a {
+    position: relative;
+    text-decoration: none;
+    color: #000;
+    width: 100%;
+    padding: 0.5rem 2rem;
+    margin-bottom: 0.25rem;
+
+    &:hover {
+        background: #3694ff42;
+        font-weight: 500;
+        cursor: pointer;
+    }
+
+    &.active {
+        background: #3694ff42;
+        font-weight: 500;
+    }
+
+    &.active::after {
+        width: 0.25rem;
+        transition: 0.3s ease;
+    }
+
+    &:hover::after {
+        width: 0.25rem;
+        transition: 0.3s ease;
+    }
+}
+
+.edit-sidenav ul a::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 100%;
+    background: #3694ff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.editable {
+    width: 75%;
+    margin-left: 25%;
+    padding: 0 1rem;
+}
+
+.editable label {
+    font-weight: 500;
+}
+
+.edit-image {
+    width: 10rem;
+    height: 10rem;
+    object-fit: cover;
+}
+
+.educational-attainment,
+.personal-information {
+    display: none;
+}
+
+.save-button {
+    display: flex;
+    justify-content: right;
+}
+
+.applicant-status {
+    width: 100%;
+    padding: 0.25rem 1rem;
+}
+
+.select-status {
+    border: 0;
+    border-bottom: 1px solid #ddd;
+    border-radius: 0;
+    padding: 0.5rem 1rem;
+    color: #000;
+}
+
+/* circle status progress */
+.status-progress {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+    gap: 1.5rem;
+}
+
+.status-progress span {
+    position: absolute;
+    left: 100%;
+    margin-left: 0.5rem;
+    /* font-weight: 500; */
+}
+
+.circle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: #9b9b9b;
+}
+
+.circle-1 i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    color: #fff;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.circle-1.passed i {
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+.circle-2 i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    color: #fff;
+    opacity: 0;
+}
+
+.circle-2.passed i {
+    opacity: 1;
+    transition: opacity 1s ease 1s;
+}
+.circle-2.dropped i {
+    opacity: 1;
+    transition: opacity 1s ease 1s;
+}
+
+.circle-3 i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    color: #fff;
+    opacity: 0;
+}
+
+.circle-3.passed i {
+    opacity: 1;
+    transition: opacity 1s ease 2s;
+}
+.circle-3.dropped i {
+    opacity: 1;
+    transition: opacity 1s ease 2s;
+}
+
+.circle-4 i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    color: #fff;
+    opacity: 0;
+}
+
+.circle-4.passed i {
+    opacity: 1;
+    transition: opacity 1s ease 3s;
+}
+.circle-4.dropped i {
+    opacity: 1;
+    transition: opacity 1s ease 3s;
+}
+
+.circle-1.passed span {
+    font-weight: 500;
+    color: #36454f;
+}
+.circle-2.passed span {
+    font-weight: 500;
+    color: #3633ff;
+    transition: all 1s ease 1s;
+}
+.circle-2.dropped span {
+    color: #ff0000;
+    font-weight: 500;
+    transition: all 1s ease 1s;
+}
+.circle-3.passed span {
+    color: #ffa500;
+    font-weight: 500;
+    transition: all 1s ease 2s;
+}
+.circle-3.dropped span {
+    color: #ff0000;
+    font-weight: 500;
+    transition: all 1s ease 2s;
+}
+.circle-4.passed span {
+    color: #008000;
+    font-weight: 500;
+    transition: all 1s ease 3s;
+}
+.circle-4.dropped span {
+    color: #ff0000;
+    font-weight: 500;
+    transition: all 1s ease 3s;
+}
+
+.circle-2::before {
+    position: absolute;
+    content: "";
+    background: #9b9b9b;
+    width: 0.25rem;
+    height: 1.5rem;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    z-index: -2;
+}
+.circle-3::before {
+    position: absolute;
+    content: "";
+    background: #9b9b9b;
+    width: 0.25rem;
+    height: 1.5rem;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    z-index: -2;
+}
+.circle-4::before {
+    position: absolute;
+    content: "";
+    background: #9b9b9b;
+    width: 0.25rem;
+    height: 1.5rem;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    z-index: -2;
+}
+
+.circle-2::after {
+    position: absolute;
+    content: "";
+    background: linear-gradient(#36454f, #3633ff);
+    background-size: 100% 0%;
+    width: 0.25rem;
+    height: 0;
+    top: -100%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    transition: 1s ease;
+    z-index: -1;
+}
+
+.circle-2.passed::after {
+    background-size: 100% 100%;
+    height: 1.5rem;
+    transform: translate(-50%, 100%);
+    transition: 1s ease;
+}
+
+.circle-2.dropped::after {
+    position: absolute;
+    content: "";
+    background: linear-gradient(#36454f, #ff0000);
+    background-size: 100% 0%;
+    width: 0.25rem;
+    height: 0;
+    top: -100%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    transition: 1s ease;
+    z-index: -1;
+}
+
+.circle-2.dropped.animate::after {
+    background-size: 100% 100%;
+    height: 1.5rem;
+    transform: translate(-50%, 100%);
+    transition: all 1s ease;
+}
+
+.circle-3::after {
+    position: absolute;
+    content: "";
+    background: linear-gradient(#3633ff, #ffa500);
+    background-size: 100% 0%;
+    width: 0.25rem;
+    height: 0;
+    top: -100%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    transition: 1s ease;
+    z-index: -1;
+}
+
+.circle-3.passed::after {
+    background-size: 100% 100%;
+    transform: translate(-50%, 100%);
+    height: 1.5rem;
+    transition: 1s ease 1s;
+}
+
+.circle-3.dropped::after {
+    position: absolute;
+    content: "";
+    background: linear-gradient(#3633ff, #ff0000);
+    background-size: 100% 0%;
+    width: 0.25rem;
+    height: 0;
+    top: -100%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    transition: 1s ease 1s;
+    z-index: -1;
+}
+
+.circle-3.dropped.animate::after {
+    background-size: 100% 100%;
+    height: 1.5rem;
+    transform: translate(-50%, 100%);
+    transition: all 1s ease 1s;
+}
+
+.circle-4.passed::after {
+    position: absolute;
+    content: "";
+    background: linear-gradient(#ffff00, #008000);
+    background-size: 100% 0%;
+    width: 0.25rem;
+    height: 0;
+    top: -100%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    transition: 1s ease 2s;
+    z-index: -1;
+}
+
+.circle-4.passed.animate::after {
+    background-size: 100% 100%;
+    height: 1.5rem;
+    transform: translate(-50%, 100%);
+    transition: all 1s ease 2s;
+}
+
+.circle-4.dropped::after {
+    position: absolute;
+    content: "";
+    background: linear-gradient(#ffff00, #ff0000);
+    background-size: 100% 0%;
+    width: 0.25rem;
+    height: 0;
+    top: -100%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    transition: 1s ease 2s;
+    z-index: -1;
+}
+
+.circle-4.dropped.animate::after {
+    background-size: 100% 100%;
+    height: 1.5rem;
+    transform: translate(-50%, 100%);
+    transition: all 1s ease 2s;
+}
+
+.circle-1.passed {
+    background: #36454f;
+    transition: background 1s ease;
+}
+.circle-2.passed {
+    background: #3633ff;
+    transition: background 1s ease 1s;
+}
+.circle-3.passed {
+    background: #ffa500;
+    transition: background 1s ease 2s;
+}
+.circle-4.passed {
+    background: #008000;
+    transition: background 1s ease 3s;
+}
+.circle-2.dropped {
+    background: #ff0000;
+    transition: background 1s ease 1s;
+}
+.circle-3.dropped {
+    background: #ff0000;
+    transition: background 1s ease 2s;
+}
+.circle-4.dropped {
+    background: #ff0000;
+    transition: background 1s ease 3s;
+}
+
+/* view status */
+.view-status {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+.view-status label {
+    font-weight: 500;
+}
+.status-progress-view {
+    display: flex;
+    gap: 5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.status-progress-view .hcircle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background: #9b9b9b;
+}
+
+.hcircle-2::before {
+    position: absolute;
+    content: "";
+    background: #9b9b9b;
+    width: 5rem;
+    height: 0.25rem;
+    top: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -2;
+}
+.hcircle-3::before {
+    position: absolute;
+    content: "";
+    background: #9b9b9b;
+    width: 5rem;
+    height: 0.25rem;
+    top: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -2;
+}
+.hcircle-4::before {
+    position: absolute;
+    content: "";
+    background: #9b9b9b;
+    width: 5rem;
+    height: 0.25rem;
+    top: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -2;
+}
+
+.hcircle-2::after {
+    position: absolute;
+    content: "";
+    background: linear-gradient(90deg, #36454f, #3633ff);
+    background-size: 100% 0%;
+    width: 0;
+    height: 0.25rem;
+    top: 50%;
+    left: -100%;
+    transform: translate(-100%, -50%);
+    z-index: -1;
+}
+
+.hcircle-2.passed::after {
+    background-size: 100% 100%;
+    width: 5rem;
+    transform: translate(0%, -50%);
+    transition: all 1s ease;
+}
+
+.hcircle-2.dropped::after {
+    position: absolute;
+    content: "";
+    background: linear-gradient(90deg, #36454f, #ff0000);
+    background-size: 100% 0%;
+    width: 0;
+    height: 0.25rem;
+    top: 50%;
+    left: -100%;
+    transform: translate(-100%, -50%);
+    z-index: -1;
+}
+
+.hcircle-2.dropped.animate::after {
+    background-size: 100% 100%;
+    width: 5rem;
+    transform: translate(0%, -50%);
+    transition: all 1s ease;
+}
+
+.hcircle-3::after {
+    position: absolute;
+    content: "";
+    background: linear-gradient(90deg, #3633ff, #ffa500);
+    background-size: 100% 0%;
+    width: 0;
+    height: 0.25rem;
+    top: 50%;
+    left: -100%;
+    transform: translate(-100%, -50%);
+    z-index: -1;
+}
+
+.hcircle-3.passed::after {
+    background-size: 100% 100%;
+    width: 5rem;
+    transform: translate(0%, -50%);
+    transition: all 1s ease 2s;
+}
+
+.hcircle-3.dropped::after {
+    position: absolute;
+    content: "";
+    background: linear-gradient(90deg, #3633ff, #ff0000);
+    background-size: 100% 0%;
+    width: 0;
+    height: 0.25rem;
+    top: 50%;
+    left: -100%;
+    transform: translate(-100%, -50%);
+    z-index: -1;
+}
+
+.hcircle-3.dropped.animate::after {
+    background-size: 100% 100%;
+    width: 5rem;
+    transform: translate(0%, -50%);
+    transition: all 1s ease 2s;
+}
+
+.hcircle-4.passed::after {
+    position: absolute;
+    content: "";
+    background: linear-gradient(90deg, #ffa500, #008000);
+    background-size: 100% 0%;
+    width: 0;
+    height: 0.25rem;
+    top: 50%;
+    left: -100%;
+    transform: translate(-100%, -50%);
+    z-index: -1;
+}
+
+.hcircle-4.passed.animate::after {
+    background-size: 100% 100%;
+    width: 5rem;
+    transform: translate(0%, -50%);
+    transition: all 1s ease 3s;
+}
+
+.hcircle-4.dropped::after {
+    position: absolute;
+    content: "";
+    background: linear-gradient(90deg, #ffa500, #ff0000);
+    background-size: 100% 0%;
+    width: 0;
+    height: 0.25rem;
+    top: 50%;
+    left: -100%;
+    transform: translate(-100%, -50%);
+    z-index: -1;
+}
+
+.hcircle-4.dropped.animate::after {
+    background-size: 100% 100%;
+    width: 5rem;
+    transform: translate(0%, -50%);
+    transition: all 1s ease 3s;
+}
+
+.hcircle-1.passed {
+    background: #36454f;
+    transition: background 1s ease;
+}
+.hcircle-2.passed {
+    background: #3633ff;
+    transition: background 1s ease 1s;
+}
+.hcircle-2.dropped {
+    background: #ff0000;
+    transition: background 1s ease 1s;
+}
+.hcircle-3.passed {
+    background: #ffa500;
+    transition: background 1s ease 2s;
+}
+.hcircle-3.dropped {
+    background: #ff0000;
+    transition: background 1s ease 2s;
+}
+.hcircle-4.passed {
+    background: #008000;
+    transition: background 1s ease 3s;
+}
+.hcircle-4.dropped {
+    background: #ff0000;
+    transition: background 1s ease 3s;
+}
+
+.hcircle span {
+    color: #fff;
+    font-size: 14px;
+}
+.hcircle-1.passed span {
+    font-weight: 500;
+}
+.hcircle-2.passed span {
+    font-weight: 500;
+    transition: all 1s ease 1s;
+}
+.hcircle-2.dropped span {
+    font-weight: 500;
+    transition: all 1s ease 1s;
+}
+.hcircle-3.passed span {
+    font-weight: 500;
+    transition: all 1s ease-in 2s;
+}
+.hcircle-3.dropped span {
+    font-weight: 500;
+    transition: all 1s ease-in 2s;
+}
+.hcircle-4.passed span {
+    font-weight: 500;
+    transition: all 1s ease-in 3s;
+}
+.hcircle-4.dropped span {
+    font-weight: 500;
+    transition: all 1s ease-in 3s;
+}
